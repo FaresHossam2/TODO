@@ -1,6 +1,5 @@
 let list = document.getElementById("list-container");
 let input = document.getElementById("item");
-let clearButton = document.querySelector(".clear");
 let form = document.querySelector("form");
 let successSound = document.getElementById("success-sound");
 
@@ -10,37 +9,29 @@ function addTask() {
         showError("Input cannot be empty.");
     } else {
         clearError();
-   
         let li = document.createElement("li");
         li.textContent = input.value;
         list.appendChild(li);
-     
         let span = document.createElement("span");
-        span.innerHTML= "\u00d7";
+        span.innerHTML = "\u00d7";
         li.appendChild(span);
     }
-    
+
     saveData();
     input.value = "";
 }
 
 // Add event listener to input for hiding error message when input has text
-input.addEventListener('input', function() {
+input.addEventListener('input', function () {
     if (input.value.trim() !== "") {
         clearError(); // Clear error message if input has text
     }
 });
 
-//clear all data
-clearButton.addEventListener("click", function() {
-    localStorage.clear("tasks");
-    list.innerHTML = "";
-    clearButton.style.display = "none"; // Hide clear button
-});
 
-list.addEventListener("click", function(e) {
+list.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
-        if (!e.target.classList.contains("checked")) { 
+        if (!e.target.classList.contains("checked")) {
             playSuccessSound();
         }
 
@@ -63,15 +54,7 @@ function showTask() {
     showClearButton(); // Update clear button visibility
 }
 
-function showClearButton() {
-    // Check if list has any tasks
-    if (list.getElementsByTagName("li").length > 0) {
-        clearButton.style.display = "block"; // Show clear button
-    } else {
-        clearButton.style.display = "none"; // Hide clear button
-    }
-    
-}
+
 function playSuccessSound() {
     successSound.play();
 }
@@ -90,7 +73,7 @@ function showError(message) {
 }
 
 
-input.addEventListener('keypress', function(event) {
+input.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
         addTask(); // Call addTask function when Enter key is pressed
     }
