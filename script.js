@@ -19,9 +19,11 @@ function addTask() {
         span.innerHTML= "\u00d7";
         li.appendChild(span);
     }
+    
     saveData();
     input.value = "";
 }
+
 // Add event listener to input for hiding error message when input has text
 input.addEventListener('input', function() {
     if (input.value.trim() !== "") {
@@ -68,6 +70,7 @@ function showClearButton() {
     } else {
         clearButton.style.display = "none"; // Hide clear button
     }
+    
 }
 function playSuccessSound() {
     successSound.play();
@@ -87,7 +90,11 @@ function showError(message) {
 }
 
 
-
+input.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        addTask(); // Call addTask function when Enter key is pressed
+    }
+});
 
 // Function to clear error message
 function clearError() {
