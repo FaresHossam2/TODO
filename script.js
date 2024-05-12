@@ -16,9 +16,9 @@ function addTask() {
         span.innerHTML = "\u00d7";
         li.appendChild(span);
     }
+    input.value = "";
 
     saveData();
-    input.value = "";
 }
 
 // Add event listener to input for hiding error message when input has text
