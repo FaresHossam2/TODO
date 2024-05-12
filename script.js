@@ -96,5 +96,6 @@ function clearError() {
         existingErrorMessage.remove();
     }
 }
+
 showTask();
 

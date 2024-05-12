@@ -60,7 +60,7 @@
     }
     @media(max-width:992px){
         body{
-            height: 88.7vh;
+            height: 80vh;
             
         }
     }
@@ -133,12 +133,12 @@
     #submit:hover{
       transform: scale(1.1);
     }
-    li{
+    li {
         font-size: 30px;
         list-style: none;
-        background-color:black;
+        background-color: black;
         color: aliceblue;
-        width: 90%;
+        width: auto;
         padding: 15px;
         margin-bottom: 15px;
         border-radius: 15px;
@@ -146,11 +146,15 @@
         position: relative;
         padding-left: 75px;
         cursor: pointer;
+        word-wrap: break-word;
+        margin-right: 60px;
     }
+    
+    
+    
     @media(max-width:768px){
         li{
-            width: 90%;
-            
+            width: 100%;
             
         }
     }
@@ -198,11 +202,13 @@
     .clear:hover{
         transform: scale(1.1);
     }
-    span{
+    span {
         color: red;
         cursor: pointer;
         position: absolute;
-        right: 30px;
-        top: 5px;
-        font-size: 45px;
+        right: 5px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+        font-size: 40px; 
     }
+    
