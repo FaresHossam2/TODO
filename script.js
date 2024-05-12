@@ -46,12 +46,10 @@ list.addEventListener("click", function (e) {
 
 function saveData() {
     localStorage.setItem("tasks", list.innerHTML);
-    showClearButton(); // Update clear button visibility
 }
 
 function showTask() {
     list.innerHTML = localStorage.getItem("tasks");
-    showClearButton(); // Update clear button visibility
 }
 
 
