@@ -181,7 +181,7 @@
     }
     @media(max-width:768px){
         li::before{
-            top: 15px;
+            top: 16px;
             left: 22px;
             height: 22px;
             width: 22px;
