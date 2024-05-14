@@ -45,11 +45,33 @@ list.addEventListener("click", function (e) {
 
 
 function saveData() {
-    localStorage.setItem("tasks", list.innerHTML);
+    const tasks = [];
+    list.querySelectorAll("li").forEach(task => {
+        tasks.push({
+            content: task.textContent,
+            checked: task.classList.contains("checked")
+        });
+    });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+
 function showTask() {
-    list.innerHTML = localStorage.getItem("tasks");
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+        const tasks = JSON.parse(storedTasks);
+        tasks.forEach(task => {
+            const li = document.createElement("li");
+            li.textContent = task.content;
+            if (task.checked) {
+                li.classList.add("checked");
+            }
+            const span = document.createElement("span");
+            span.innerHTML = "\u00d7";
+            li.appendChild(span);
+            list.appendChild(li);
+        });
+    }
 }
 
 
@@ -57,15 +79,15 @@ function playSuccessSound() {
     successSound.play();
 }
 function showError(message) {
-    // Check if error message already exists
+    
     let errorMessage = form.querySelector('.alert-error');
-    if (!errorMessage) { // If error message doesn't exist, create and append it
+    if (!errorMessage) { 
         errorMessage = document.createElement('div');
         errorMessage.classList.add('alert', 'alert-danger', 'alert-error', 'mt-3');
         errorMessage.textContent = message;
         errorMessage.style.fontWeight = 'bold';
-        form.insertBefore(errorMessage, input.nextElementSibling); // Insert after the input element
-    } else { // Update existing error message
+        form.insertBefore(errorMessage, input.nextElementSibling); 
+    } else { 
         errorMessage.textContent = message;
     }
 }

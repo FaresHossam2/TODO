@@ -160,6 +160,7 @@
     @media(max-width:768px){
         li{
             width: 100%;
+            font-size: 23px;
             
         }
     }
