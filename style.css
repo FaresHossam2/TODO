@@ -160,7 +160,7 @@
     @media(max-width:768px){
         li{
             width: 100%;
-            font-size: 23px;
+            font-size: 20px;
             
         }
     }
@@ -187,6 +187,13 @@
         width: 40px;
         top: 18px;
 
+    }
+    @media(max-width:768px){
+        .checked::before{
+            top: 9px;
+
+            
+        }
     }
     .btn-clear{
         display: flex;
