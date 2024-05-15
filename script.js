@@ -45,36 +45,16 @@ list.addEventListener("click", function (e) {
 
 
 function saveData() {
-    const tasks = [];
-    list.querySelectorAll("li").forEach(task => {
-        tasks.push({
-            content: task.textContent,
-            checked: task.classList.contains("checked")
-        });
-    });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("tasks", list.innerHTML);
 }
 
 
 function showTask() {
-    const storedTasks = localStorage.getItem("tasks");
-    if (storedTasks) {
-        const tasks = JSON.parse(storedTasks);
-        tasks.forEach(task => {
-            const li = document.createElement("li");
-            li.textContent = task.content;
-            if (task.checked) {
-                li.classList.add("checked");
-            }
-            const span = document.createElement("span");
-            span.innerHTML = "\u00d7";
-            li.appendChild(span);
-            list.appendChild(li);
-        });
-    }
+   
+    list.innerHTML = localStorage.getItem("tasks")
+
 }
-
-
+showTask();
 function playSuccessSound() {
     successSound.play();
 }
