@@ -1,4 +1,4 @@
-
+    
 
     /* Start Global Rules */
 
@@ -49,10 +49,8 @@
 
     body {
         font-family: "Open Sans", sans-serif;
-        background-color: aliceblue;
-        background-image: url(./images/1\ \(2\).jpg);
-        background-size: cover;
-        background-position:center;
+        background-color: indigo;
+
     
     }
     @media (max-width:768px){
